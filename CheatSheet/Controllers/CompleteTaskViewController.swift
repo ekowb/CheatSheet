@@ -11,18 +11,26 @@ import UIKit
 class CompleteTaskViewController: UIViewController {
     
     var previousVC = TaskListTableViewController()
-    var selectedToDo = ToDo()
+    var selectedToDo : ToDoCoreData?
 
 
     @IBOutlet weak var taskDisplayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskDisplayLabel.text = selectedToDo.name
+        taskDisplayLabel.text = selectedToDo?.name
         // Do any additional setup after loading the view.
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let theToDo = selectedToDo {
+                context.delete(theToDo)
+                navigationController?.popViewController(animated: true)
+            }
+        }
+        /*
         var index = 0
         for toDo in previousVC.toDos {
             if toDo.name == selectedToDo.name {
@@ -34,6 +42,7 @@ class CompleteTaskViewController: UIViewController {
          
             index += 1
         }
+ */
     }
     
     

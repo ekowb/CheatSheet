@@ -10,13 +10,18 @@ import UIKit
 
 class TaskListTableViewController: UITableViewController {
     
-    var toDos: [ToDo] = []
+    var toDos: [ToDoCoreData] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toDos = createToDos()
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getToDos()
+        tableView.reloadData()
+
     }
     
     func createToDos() -> [ToDo] {
@@ -33,6 +38,16 @@ class TaskListTableViewController: UITableViewController {
         return [eggs, cheese, dog]
     }
     
+    func getToDos() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let coreDataToDos = try? context.fetch(ToDoCoreData.fetchRequest()) as? [ToDoCoreData] {
+                if let thetoDos = coreDataToDos {
+                    toDos = thetoDos
+                }
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDos.count
     }
@@ -41,10 +56,12 @@ class TaskListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskListTableViewCell", for: indexPath)
         let item = toDos[indexPath.row]
         
-        if item.important {
-            cell.textLabel?.text = "❗️" + item.name
-        } else {
-            cell.textLabel?.text = item.name
+        if let name = item.name {
+            if item.important {
+                cell.textLabel?.text = "❗️" + name
+            } else {
+                cell.textLabel?.text = name
+            }
         }
         
         return cell
@@ -59,8 +76,8 @@ class TaskListTableViewController: UITableViewController {
             addVC.previousVC = self
         }
         if let completeVC = segue.destination as? CompleteTaskViewController {
-            if let toDo = sender as? ToDo {
-                completeVC.selectedToDo = toDo
+            if let task = sender as? ToDoCoreData {
+                completeVC.selectedToDo = task
                 completeVC.previousVC = self
                 
             }
