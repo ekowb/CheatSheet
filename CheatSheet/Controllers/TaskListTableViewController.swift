@@ -13,6 +13,13 @@ class TaskListTableViewController: UITableViewController {
     var toDos: [ToDoCoreData] = []
     
     
+
+    @IBAction func displayButtonTapped(_ sender: Any) {
+
+            performSegue(withIdentifier: "unwindSegueToBigDisplay", sender: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 // Do any additional setup after loading the view.
@@ -63,9 +70,13 @@ class TaskListTableViewController: UITableViewController {
                 cell.textLabel?.text = name
             }
         }
+       // print("\(item)")
         
         return cell
+        
     }
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDo = toDos[indexPath.row]
         performSegue(withIdentifier: "moveToComplete", sender: toDo)
@@ -82,6 +93,9 @@ class TaskListTableViewController: UITableViewController {
                 
             }
          }
+      
     }
+
+ 
 }
 

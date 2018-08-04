@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02C663F44B40890C9C11B20E /* Pods_CheatSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BDAAE6719675893FF77DD7 /* Pods_CheatSheet.framework */; };
+		420FA1BD2113B53C008B3901 /* BigDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420FA1BC2113B53C008B3901 /* BigDisplayViewController.swift */; };
 		4263163721063CDB00D45BC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263163621063CDB00D45BC8 /* AppDelegate.swift */; };
 		4263163C21063CDB00D45BC8 /* UIOpen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4263163A21063CDB00D45BC8 /* UIOpen.storyboard */; };
 		4263163F21063CDB00D45BC8 /* CheatSheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4263163D21063CDB00D45BC8 /* CheatSheet.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		39CA8EB9B702CCD5D120B60A /* Pods-CheatSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheatSheet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheatSheet/Pods-CheatSheet.debug.xcconfig"; sourceTree = "<group>"; };
+		420FA1BC2113B53C008B3901 /* BigDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDisplayViewController.swift; sourceTree = "<group>"; };
 		4263163321063CDA00D45BC8 /* CheatSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheatSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4263163621063CDB00D45BC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4263163B21063CDB00D45BC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UIOpen.storyboard; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				42B47D5121111BAC00F05048 /* TaskListTableViewController.swift */,
 				42B47D5621112C4700F05048 /* AddToDoViewController.swift */,
 				42C95BC92112266C00B6E36B /* CompleteTaskViewController.swift */,
+				420FA1BC2113B53C008B3901 /* BigDisplayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				42C95BCA2112266C00B6E36B /* CompleteTaskViewController.swift in Sources */,
 				42890F8C210A546E009CDE3F /* DisplayGroupTableViewCell.swift in Sources */,
 				42B8008E210FB24800FB0C7D /* DisplayTaskTableViewCell.swift in Sources */,
+				420FA1BD2113B53C008B3901 /* BigDisplayViewController.swift in Sources */,
 				42B47D5421111CEC00F05048 /* ToDo.swift in Sources */,
 				4263163721063CDB00D45BC8 /* AppDelegate.swift in Sources */,
 				42B47D5221111BAC00F05048 /* TaskListTableViewController.swift in Sources */,
