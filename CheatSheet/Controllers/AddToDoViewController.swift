@@ -12,6 +12,7 @@ class AddToDoViewController: UIViewController {
     
     var previousVC = TaskListTableViewController()
 
+    @IBOutlet weak var typeOptionsControl: UISegmentedControl!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
     override func viewDidLoad() {
@@ -47,6 +48,18 @@ class AddToDoViewController: UIViewController {
                     toDo.name = titleText
                     toDo.important = importantSwitch.isOn
                 }
+               switch typeOptionsControl.selectedSegmentIndex {
+                case 0:
+                    toDo.type = "Academics"
+                case 1:
+                    toDo.type = "Extracurriculars"
+                case 2:
+                    toDo.type = "Other"
+                default:
+                    print("unexpected segmented index")
+                }
+ 
+
             }
             try? context.save()
             

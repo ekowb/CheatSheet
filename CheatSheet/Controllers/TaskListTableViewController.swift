@@ -14,6 +14,7 @@ class TaskListTableViewController: UITableViewController {
     
     
 
+    
     @IBAction func displayButtonTapped(_ sender: Any) {
 
             performSegue(withIdentifier: "unwindSegueToBigDisplay", sender: self)
@@ -69,6 +70,18 @@ class TaskListTableViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = name
             }
+            switch item.type {
+            case "Academics":
+                cell.backgroundColor = UIColor(red: 0xCE / 0xFF, green: 0x56 / 0xFF, blue: 0x3C / 0xFF, alpha: 0xFF / 0xFF)
+            case "Extracurriculars":
+                cell.backgroundColor = UIColor(red: 0x4C / 0xFF, green: 0xA7 / 0xFF, blue: 0xB4 / 0xE9, alpha: 0xFF / 0xFF) 
+            case "Other":
+                cell.backgroundColor = UIColor(red: 0x87 / 0xFF, green: 0xB4 / 0xFF, blue: 0x4D / 0xFF, alpha: 0xFF / 0xFF)
+            default:
+                print("no return")
+            }
+ 
+            
         }
        // print("\(item)")
         

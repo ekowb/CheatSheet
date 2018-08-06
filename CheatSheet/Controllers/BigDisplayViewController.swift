@@ -14,6 +14,11 @@ class BigDisplayViewController: UIViewController {
     var previousVC = TaskListTableViewController()
     var toDos : [ToDoCoreData] = []
 
+    @IBOutlet weak var bigCollectView: UICollectionView!
+    
+    
+    
+    
     @IBOutlet weak var topTaskLabel: UILabel!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -43,20 +48,35 @@ class BigDisplayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getToDos()
-        topTaskLabel.text = "Top Task: \(toDos[0].name ?? "")"
+        // TODO: proper unwrapping
+        if toDos.isEmpty {
+            topTaskLabel.text = "None"
+        } else {
+            topTaskLabel.text = toDos[0].name
+            if let item = toDos[0].type {
+                switch item {
+                case "Academics":
+                    bigCollectView.backgroundColor = UIColor(red: 0xCE / 0xFF, green: 0x56 / 0xFF, blue: 0x3C / 0xFF, alpha: 0xFF / 0xFF)
+                case "Extracurriculars":
+                    bigCollectView.backgroundColor = UIColor(red: 0x4C / 0xFF, green: 0xA7 / 0xFF, blue: 0xB4 / 0xE9, alpha: 0xFF / 0xFF)
+                case "Other":
+                    bigCollectView.backgroundColor = UIColor(red: 0x87 / 0xFF, green: 0xB4 / 0xFF, blue: 0x4D / 0xFF, alpha: 0xFF / 0xFF)
+                default:
+                    bigCollectView.backgroundColor = UIColor(red: 0xCE / 0xFF, green: 0x56 / 0xFF, blue: 0x3C / 0xFF, alpha: 0xFF / 0xFF)
+                    print("no return")
+                }
+            }
+        }
+        
     }
+    
+}
     
 
     
- /*  if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+ /* if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
         let toDo = ToDoCoreData(entity: ToDoCoreData.entity(), insertInto: context)
-        if let titleText = titleTextField.text {
-            if titleText.isEmpty {
-                toDo.name = "No Title"
-            } else {
-                toDo.name = titleText
-                toDo.important = importantSwitch.isOn
-            }
+    
 
         }
 
@@ -64,6 +84,6 @@ class BigDisplayViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
- */
 
-}
+*/
+
