@@ -20,6 +20,7 @@ struct Groups {
 var currentGroup = GroupList()
 
 // groups
+let general = Groups(title: "General", tasks: ["0", "1", "2", "3", "4"])
 let academics = Groups(title: "Academics", tasks: ["1", "2", "3", "4", "5"])
 let extracurriculars = Groups(title: "Extracurriculars", tasks: ["6", "7", "8", "9", "10"])
 let lifeAndHealth = Groups(title: "Life & Health", tasks: ["11", "12", "13", "14", "15"])

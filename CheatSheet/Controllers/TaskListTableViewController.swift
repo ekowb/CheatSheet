@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Dropdowns
 
 class TaskListTableViewController: UITableViewController {
     
     var toDos: [ToDoCoreData] = []
     
-    
-
+    @IBAction func unwindToTaskList(segue:UIStoryboardSegue) { }
     
     @IBAction func displayButtonTapped(_ sender: Any) {
 
@@ -24,6 +24,17 @@ class TaskListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 // Do any additional setup after loading the view.
+        let items = ["General", "Academics", "Extracurriculars", "Work & Finance", "Life & Health"]
+        let titleView = TitleView(navigationController: navigationController!, title: "Menu", items: items)
+        Config.List.backgroundColor = UIColor(red: 0x48 / 0xFF, green: 0x46 / 0xFF, blue: 0x4B / 0xFF, alpha: 0xFF / 0xFF)
+        Config.List.DefaultCell.Text.color = UIColor.white
+        Config.List.DefaultCell.Text.font = UIFont.init(name: "Avenir", size: 17.0)!
+        Config.List.DefaultCell.separatorColor = UIColor(red: 0x48 / 0xFF, green: 0x46 / 0xFF, blue: 0x4B / 0xFF, alpha: 0xFF / 0xFF)
+        titleView?.action = { [weak self] index in
+            print("select \(index)")
+        }
+        
+        navigationItem.titleView = titleView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +85,7 @@ class TaskListTableViewController: UITableViewController {
             case "Academics":
                 cell.backgroundColor = UIColor(red: 0xCE / 0xFF, green: 0x56 / 0xFF, blue: 0x3C / 0xFF, alpha: 0xFF / 0xFF)
             case "Extracurriculars":
-                cell.backgroundColor = UIColor(red: 0x4C / 0xFF, green: 0xA7 / 0xFF, blue: 0xB4 / 0xE9, alpha: 0xFF / 0xFF) 
+                cell.backgroundColor = UIColor(red: 0x4C / 0xFF, green: 0xA7 / 0xFF, blue: 0xB4 / 0xE9, alpha: 0xFF / 0xFF)
             case "Other":
                 cell.backgroundColor = UIColor(red: 0x87 / 0xFF, green: 0xB4 / 0xFF, blue: 0x4D / 0xFF, alpha: 0xFF / 0xFF)
             default:
@@ -96,8 +107,8 @@ class TaskListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addVC = segue.destination as? AddToDoViewController {
-            addVC.previousVC = self
+        if let addVC = segue.destination as? ListGroupsTableViewController {
+            addVC.earlyVC = self
         }
         if let completeVC = segue.destination as? CompleteTaskViewController {
             if let task = sender as? ToDoCoreData {

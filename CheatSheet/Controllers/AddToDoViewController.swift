@@ -10,7 +10,7 @@ import UIKit
 
 class AddToDoViewController: UIViewController {
     
-    var previousVC = TaskListTableViewController()
+    var previousVC = ListGroupsTableViewController()
 
     @IBOutlet weak var typeOptionsControl: UISegmentedControl!
     @IBOutlet weak var titleTextField: UITextField!
@@ -41,6 +41,9 @@ class AddToDoViewController: UIViewController {
  */
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             let toDo = ToDoCoreData(entity: ToDoCoreData.entity(), insertInto: context)
+            
+            
+            
             if let titleText = titleTextField.text {
                 if titleText.isEmpty {
                     toDo.name = "No Title"
@@ -62,6 +65,8 @@ class AddToDoViewController: UIViewController {
 
             }
             try? context.save()
+            
+            performSegue(withIdentifier: "unwindSegueToTaskList", sender: self)
             
             navigationController?.popViewController(animated: true)
         }
