@@ -8,19 +8,24 @@
 
 import UIKit
 
+
+
 class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
+   
+
     var previousVC = TaskListTableViewController()
+    var selectedToDo : ToDoCoreData?
     var toDos : [ToDoCoreData] = []{
         didSet{
             BigCollectView.reloadData()
         }
     }
     
+
     
-
-
+    
+    
     @IBOutlet weak var BigCollectView: UICollectionView!
     
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -33,37 +38,48 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.BigCollectView.dataSource = self
+        self.BigCollectView.delegate = self
         // BigCollectView?.register(BigCollectionViewCell.self, forCellWithReuseIdentifier: "cell1")
         // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return toDos.count
+            return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = BigCollectView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! BigCollectionViewCell
         
         if indexPath.row == 0 {
-            cell.backgroundColor = UIColor(red: 0x43 / 0xFF, green: 0x89 / 0xFF, blue: 0xAC / 0xFF, alpha: 0xFF / 0xFF)
-            if toDos.isEmpty {
-                cell.taskLabel.text = "Empty"
+            cell.backgroundColor = UIColor(red: 0xB4 / 0xFF, green: 0x96 / 0xFF, blue: 0x3F / 0xFF, alpha: 0xFF / 0xFF)
+            if toDos.indices.contains(0) {
+                cell.taskLabel.text = toDos[0].name
             }
             else {
-                cell.taskLabel.text = toDos[0].name
+                cell.taskLabel.text = "Empty"
             }
         }
         else if indexPath.row == 1 {
-            cell.backgroundColor = UIColor(red: 0x4B / 0xFF, green: 0x9A / 0xFF, blue: 0xC1 / 0xFF, alpha: 0xFF / 0xFF)
-            if toDos.isEmpty {
-                cell.taskLabel.text = "Empty"
+            cell.backgroundColor = UIColor(red: 0xCF / 0xFF, green: 0xAD / 0xFF, blue: 0x48 / 0xFF, alpha: 0xFF / 0xFF)
+            if toDos.indices.contains(1) {
+                cell.taskLabel.text = toDos[1].name
             }
             else {
-                cell.taskLabel.text = toDos[1].name
+                cell.taskLabel.text = "Empty"
             }
         }
         else if indexPath.row == 2 {
+            cell.backgroundColor = UIColor(red: 0xEA / 0xFF, green: 0xC4 / 0xFF, blue: 0x52 / 0xFF, alpha: 0xFF / 0xFF)
+            if toDos.indices.contains(2) {
+                cell.taskLabel.text = toDos[2].name
+            }
+            else {
+                cell.taskLabel.text = "Empty"
+            }
+        }
+        else {
             cell.backgroundColor = UIColor(red: 0x5B / 0xFF, green: 0xB9 / 0xFF, blue: 0xE9 / 0xFF, alpha: 0xFF / 0xFF)
             if toDos.isEmpty {
                 cell.taskLabel.text = "Empty"
@@ -73,13 +89,32 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         cell.layer.cornerRadius = 40.0
+       
         
+
         cell.indexLabel.text = String(indexPath.row + 1)
         
+        cell.checkButton.tag = indexPath.row
+        cell.checkButton.addTarget(self, action: #selector(BigDisplayViewController.checkButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+
         
         return cell
-    }
         
+    }
+    
+    
+
+    
+    @IBAction func checkButtonTapped(_ sender: UIButton) {
+        let x = sender.tag
+        if toDos.indices.contains(x) {
+            toDos.remove(at: x)
+        } else {
+            print("already checked")
+        }
+        
+    }
     
     func getToDos() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {

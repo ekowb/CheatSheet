@@ -27,6 +27,8 @@
 		42B8008E210FB24800FB0C7D /* DisplayTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B8008D210FB24800FB0C7D /* DisplayTaskTableViewCell.swift */; };
 		42BEF8282118FD2D00D9C7B5 /* BigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEF8272118FD2D00D9C7B5 /* BigCollectionViewCell.swift */; };
 		42C146F3210A7D7100CBBF5E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C146F2210A7D7100CBBF5E /* Groups.swift */; };
+		42C7C6A0211B79EE00FD27C4 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7C69F211B79EE00FD27C4 /* CoreDataHelper.swift */; };
+		42C8C856211A4F79004357E0 /* BigCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8C855211A4F79004357E0 /* BigCollectionViewLayout.swift */; };
 		42C95BCA2112266C00B6E36B /* CompleteTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C95BC92112266C00B6E36B /* CompleteTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		42B8008D210FB24800FB0C7D /* DisplayTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskTableViewCell.swift; sourceTree = "<group>"; };
 		42BEF8272118FD2D00D9C7B5 /* BigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCollectionViewCell.swift; sourceTree = "<group>"; };
 		42C146F2210A7D7100CBBF5E /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		42C7C69F211B79EE00FD27C4 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		42C8C855211A4F79004357E0 /* BigCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCollectionViewLayout.swift; sourceTree = "<group>"; };
 		42C95BC92112266C00B6E36B /* CompleteTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskViewController.swift; sourceTree = "<group>"; };
 		516E9ED2309B986CD5B0FC58 /* Pods-CheatSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheatSheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheatSheet/Pods-CheatSheet.release.xcconfig"; sourceTree = "<group>"; };
 		77263CF8ADB61ADC9B79AE64 /* Pods_CheatSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheatSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +148,7 @@
 		42631650210642B300D45BC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				42C7C69F211B79EE00FD27C4 /* CoreDataHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				42890F8B210A546E009CDE3F /* DisplayGroupTableViewCell.swift */,
 				42B8008D210FB24800FB0C7D /* DisplayTaskTableViewCell.swift */,
 				42BEF8272118FD2D00D9C7B5 /* BigCollectionViewCell.swift */,
+				42C8C855211A4F79004357E0 /* BigCollectionViewLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				42C95BCA2112266C00B6E36B /* CompleteTaskViewController.swift in Sources */,
 				42890F8C210A546E009CDE3F /* DisplayGroupTableViewCell.swift in Sources */,
 				42B8008E210FB24800FB0C7D /* DisplayTaskTableViewCell.swift in Sources */,
+				42C7C6A0211B79EE00FD27C4 /* CoreDataHelper.swift in Sources */,
 				420FA1BD2113B53C008B3901 /* BigDisplayViewController.swift in Sources */,
 				42B47D5421111CEC00F05048 /* ToDo.swift in Sources */,
 				42BEF8282118FD2D00D9C7B5 /* BigCollectionViewCell.swift in Sources */,
@@ -353,6 +360,7 @@
 				42890F8A210A515A009CDE3F /* DisplayGroupViewController.swift in Sources */,
 				42890F882107EE16009CDE3F /* ListGroupsTableViewCell.swift in Sources */,
 				42C146F3210A7D7100CBBF5E /* Groups.swift in Sources */,
+				42C8C856211A4F79004357E0 /* BigCollectionViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

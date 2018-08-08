@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 
-class BigCollectionViewCell: UICollectionViewCell {
-    
 
+
+class BigCollectionViewCell: UICollectionViewCell {
+
+
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var indexLabel: UILabel!
     @IBOutlet weak var taskLabel: UILabel!
     
+
 }
 
 

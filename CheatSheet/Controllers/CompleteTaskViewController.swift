@@ -22,15 +22,28 @@ class CompleteTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func completeButtonTapped(_ sender: UIButton) {
-        
+    func finishTask() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let theToDo = selectedToDo {
                 //TODO:
                 context.delete(theToDo)
                 try! context.save()
-                navigationController?.popViewController(animated: true)
             }
+        }
+    }
+    
+    
+    
+    @IBAction func completeButtonTapped(_ sender: UIButton) {
+        finishTask()
+        
+     /*   if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            if let theToDo = selectedToDo {
+                //TODO:
+                context.delete(theToDo)
+                try! context.save()
+                */
+                navigationController?.popViewController(animated: true)
         }
         
         
@@ -48,11 +61,3 @@ class CompleteTaskViewController: UIViewController {
         }
  */
     }
-    
-    
- 
-    
-  
-
-
-}

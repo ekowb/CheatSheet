@@ -58,13 +58,15 @@ class TaskListTableViewController: UITableViewController {
     }
     
     func getToDos() {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+         toDos = CoreDataHelper.retrieveToDos()
+    /*    if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let coreDataToDos = try? context.fetch(ToDoCoreData.fetchRequest()) as? [ToDoCoreData] {
                 if let thetoDos = coreDataToDos {
                     toDos = thetoDos
                 }
             }
         }
+ */
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,18 +83,7 @@ class TaskListTableViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = name
             }
-            switch item.type {
-            case "Academics":
-                cell.backgroundColor = UIColor(red: 0xCE / 0xFF, green: 0x56 / 0xFF, blue: 0x3C / 0xFF, alpha: 0xFF / 0xFF)
-            case "Extracurriculars":
-                cell.backgroundColor = UIColor(red: 0x4C / 0xFF, green: 0xA7 / 0xFF, blue: 0xB4 / 0xE9, alpha: 0xFF / 0xFF)
-            case "Other":
-                cell.backgroundColor = UIColor(red: 0x87 / 0xFF, green: 0xB4 / 0xFF, blue: 0x4D / 0xFF, alpha: 0xFF / 0xFF)
-            default:
-                print("no return")
-            }
  
-            
         }
        // print("\(item)")
         
@@ -104,6 +95,20 @@ class TaskListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let toDo = toDos[indexPath.row]
         performSegue(withIdentifier: "moveToComplete", sender: toDo)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                let noteToDelete = toDos[indexPath.row]
+                CoreDataHelper.delete(aTask: noteToDelete)
+                
+                toDos = CoreDataHelper.retrieveToDos()
+                
+            /*    self.toDos.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                try! context.save()
+ */
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
