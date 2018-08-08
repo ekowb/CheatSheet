@@ -58,7 +58,7 @@ class TaskListTableViewController: UITableViewController {
     }
     
     func getToDos() {
-         toDos = CoreDataHelper.retrieveToDos()
+        toDos = CoreDataHelper.retrieveToDos()
     /*    if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let coreDataToDos = try? context.fetch(ToDoCoreData.fetchRequest()) as? [ToDoCoreData] {
                 if let thetoDos = coreDataToDos {
@@ -75,7 +75,7 @@ class TaskListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskListTableViewCell", for: indexPath)
-        let item = toDos[indexPath.row]
+        let item = toDos[toDos.count - 1 - indexPath.row]
         
         if let name = item.name {
             if item.important {

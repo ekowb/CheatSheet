@@ -52,6 +52,8 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = BigCollectView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath) as! BigCollectionViewCell
         
+       // toDos = CoreDataHelper.retrieveToDos()
+        
         if indexPath.row == 0 {
             cell.backgroundColor = UIColor(red: 0xB4 / 0xFF, green: 0x96 / 0xFF, blue: 0x3F / 0xFF, alpha: 0xFF / 0xFF)
             if toDos.indices.contains(0) {
@@ -109,10 +111,13 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBAction func checkButtonTapped(_ sender: UIButton) {
         let x = sender.tag
         if toDos.indices.contains(x) {
+            CoreDataHelper.delete(aTask: toDos[x])
+            CoreDataHelper.saveToDo()
             toDos.remove(at: x)
         } else {
             print("already checked")
         }
+       
         
     }
     

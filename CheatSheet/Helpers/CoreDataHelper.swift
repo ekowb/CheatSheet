@@ -42,8 +42,9 @@ struct CoreDataHelper {
         do {
             let fetchRequest = NSFetchRequest<ToDoCoreData>(entityName: "ToDoCoreData")
             let results = try context.fetch(fetchRequest)
-            
+            print("\(results)")
             return results
+            
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
             return []
