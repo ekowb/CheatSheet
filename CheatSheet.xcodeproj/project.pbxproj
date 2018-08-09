@@ -28,6 +28,9 @@
 		42BEF8282118FD2D00D9C7B5 /* BigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEF8272118FD2D00D9C7B5 /* BigCollectionViewCell.swift */; };
 		42C146F3210A7D7100CBBF5E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C146F2210A7D7100CBBF5E /* Groups.swift */; };
 		42C7C6A0211B79EE00FD27C4 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7C69F211B79EE00FD27C4 /* CoreDataHelper.swift */; };
+		42C7C6A2211C259D00FD27C4 /* bee1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C7C6A1211C259D00FD27C4 /* bee1.png */; };
+		42C7C6A4211C25F200FD27C4 /* Screen Shot 2018-08-09 at 12.15.55 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C7C6A3211C25F200FD27C4 /* Screen Shot 2018-08-09 at 12.15.55 AM.png */; };
+		42C7C6A8211C2BC200FD27C4 /* Screen Shot 2018-08-09 at 12.57.32 AM.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C7C6A7211C2BC200FD27C4 /* Screen Shot 2018-08-09 at 12.57.32 AM.png */; };
 		42C8C856211A4F79004357E0 /* BigCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C8C855211A4F79004357E0 /* BigCollectionViewLayout.swift */; };
 		42C95BCA2112266C00B6E36B /* CompleteTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C95BC92112266C00B6E36B /* CompleteTaskViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +59,10 @@
 		42BEF8272118FD2D00D9C7B5 /* BigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCollectionViewCell.swift; sourceTree = "<group>"; };
 		42C146F2210A7D7100CBBF5E /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		42C7C69F211B79EE00FD27C4 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		42C7C6A1211C259D00FD27C4 /* bee1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bee1.png; sourceTree = "<group>"; };
+		42C7C6A3211C25F200FD27C4 /* Screen Shot 2018-08-09 at 12.15.55 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2018-08-09 at 12.15.55 AM.png"; sourceTree = "<group>"; };
+		42C7C6A7211C2BC200FD27C4 /* Screen Shot 2018-08-09 at 12.57.32 AM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2018-08-09 at 12.57.32 AM.png"; sourceTree = "<group>"; };
+		42C7C6A9211CB3AF00FD27C4 /* CheatSheet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CheatSheet.entitlements; sourceTree = "<group>"; };
 		42C8C855211A4F79004357E0 /* BigCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCollectionViewLayout.swift; sourceTree = "<group>"; };
 		42C95BC92112266C00B6E36B /* CompleteTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTaskViewController.swift; sourceTree = "<group>"; };
 		516E9ED2309B986CD5B0FC58 /* Pods-CheatSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheatSheet.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheatSheet/Pods-CheatSheet.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +111,7 @@
 		4263163521063CDA00D45BC8 /* CheatSheet */ = {
 			isa = PBXGroup;
 			children = (
+				42C7C6A9211CB3AF00FD27C4 /* CheatSheet.entitlements */,
 				4263163621063CDB00D45BC8 /* AppDelegate.swift */,
 				42631650210642B300D45BC8 /* Helpers */,
 				42631652210642BE00D45BC8 /* Controllers */,
@@ -114,6 +122,9 @@
 				4263164E210642A400D45BC8 /* Storyboards */,
 				4263164D2106429E00D45BC8 /* Extensions */,
 				4263164021063CDD00D45BC8 /* Assets.xcassets */,
+				42C7C6A7211C2BC200FD27C4 /* Screen Shot 2018-08-09 at 12.57.32 AM.png */,
+				42C7C6A3211C25F200FD27C4 /* Screen Shot 2018-08-09 at 12.15.55 AM.png */,
+				42C7C6A1211C259D00FD27C4 /* bee1.png */,
 				4263163D21063CDB00D45BC8 /* CheatSheet.xcdatamodeld */,
 			);
 			path = CheatSheet;
@@ -238,6 +249,11 @@
 				TargetAttributes = {
 					4263163221063CDA00D45BC8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -266,7 +282,10 @@
 			files = (
 				42B47D502110FBAF00F05048 /* Main.storyboard in Resources */,
 				4263164421063CDD00D45BC8 /* LaunchScreen.storyboard in Resources */,
+				42C7C6A2211C259D00FD27C4 /* bee1.png in Resources */,
+				42C7C6A8211C2BC200FD27C4 /* Screen Shot 2018-08-09 at 12.57.32 AM.png in Resources */,
 				4263164C2106426200D45BC8 /* GoogleService-Info.plist in Resources */,
+				42C7C6A4211C25F200FD27C4 /* Screen Shot 2018-08-09 at 12.15.55 AM.png in Resources */,
 				4263164121063CDD00D45BC8 /* Assets.xcassets in Resources */,
 				4263163C21063CDB00D45BC8 /* UIOpen.storyboard in Resources */,
 			);
@@ -505,9 +524,11 @@
 			baseConfigurationReference = 413F0064F613C9A06F64F3EE /* Pods-CheatSheet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CheatSheet/CheatSheet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 488H34C2L3;
 				INFOPLIST_FILE = "$(SRCROOT)/CheatSheet/Supporting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,7 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekowbuadu.CheatSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -524,9 +545,11 @@
 			baseConfigurationReference = 516E9ED2309B986CD5B0FC58 /* Pods-CheatSheet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CheatSheet/CheatSheet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 488H34C2L3;
 				INFOPLIST_FILE = "$(SRCROOT)/CheatSheet/Supporting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ekowbuadu.CheatSheet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
