@@ -19,6 +19,10 @@ class CompleteTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         taskDisplayLabel.text = selectedToDo?.name
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0x22 / 0xFF, green: 0x28 / 0xFF, blue: 0x2C / 0xFF, alpha: 0xFF / 0xFF)
+        let textAttributes = [NSAttributedStringKey.foregroundColor : UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)]
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         // Do any additional setup after loading the view.
     }
     

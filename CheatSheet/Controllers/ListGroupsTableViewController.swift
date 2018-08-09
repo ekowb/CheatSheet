@@ -19,9 +19,7 @@ class ListGroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
     }
     
     let list = [general.title, academics.title, extracurriculars.title, workAndFinance.title, lifeAndHealth.title]

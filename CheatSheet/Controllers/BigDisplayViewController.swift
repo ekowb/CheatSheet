@@ -55,7 +55,7 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
        // toDos = CoreDataHelper.retrieveToDos()
         
         if indexPath.row == 0 {
-            cell.backgroundColor = UIColor(red: 0xB4 / 0xFF, green: 0x96 / 0xFF, blue: 0x3F / 0xFF, alpha: 0xFF / 0xFF)
+            cell.backgroundColor = UIColor(red: 0xFF / 0xFF, green: 0xDD / 0xFF, blue: 0x75 / 0xFF, alpha: 0xFF / 0xFF)
             if toDos.indices.contains(0) {
                 cell.taskLabel.text = toDos[0].name
             }
@@ -64,7 +64,7 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         else if indexPath.row == 1 {
-            cell.backgroundColor = UIColor(red: 0xCF / 0xFF, green: 0xAD / 0xFF, blue: 0x48 / 0xFF, alpha: 0xFF / 0xFF)
+            cell.backgroundColor = UIColor(red: 0xFB / 0xFF, green: 0xCF / 0xFF, blue: 0x5C / 0xFF, alpha: 0xFF / 0xFF)
             if toDos.indices.contains(1) {
                 cell.taskLabel.text = toDos[1].name
             }
@@ -73,7 +73,7 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         else if indexPath.row == 2 {
-            cell.backgroundColor = UIColor(red: 0xEA / 0xFF, green: 0xC4 / 0xFF, blue: 0x52 / 0xFF, alpha: 0xFF / 0xFF)
+            cell.backgroundColor = UIColor(red: 0xD8 / 0xFF, green: 0xB3 / 0xFF, blue: 0x59 / 0xFF, alpha: 0xFF / 0xFF)
             if toDos.indices.contains(2) {
                 cell.taskLabel.text = toDos[2].name
             }
@@ -99,7 +99,6 @@ class BigDisplayViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.checkButton.tag = indexPath.row
         cell.checkButton.addTarget(self, action: #selector(BigDisplayViewController.checkButtonTapped(_:)), for: UIControlEvents.touchUpInside)
         
-
         
         return cell
         

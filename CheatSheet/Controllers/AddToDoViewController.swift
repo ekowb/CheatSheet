@@ -51,7 +51,7 @@ class AddToDoViewController: UIViewController {
                     toDo.name = titleText
                     toDo.important = importantSwitch.isOn
                 }
-               switch typeOptionsControl.selectedSegmentIndex {
+             /*  switch typeOptionsControl.selectedSegmentIndex {
                 case 0:
                     toDo.type = "Academics"
                 case 1:
@@ -62,7 +62,7 @@ class AddToDoViewController: UIViewController {
                     print("unexpected segmented index")
                 }
  
-
+*/
             }
             try? context.save()
             

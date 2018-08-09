@@ -24,7 +24,7 @@ class TaskListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 // Do any additional setup after loading the view.
-        let items = ["General", "Academics", "Extracurriculars", "Work & Finance", "Life & Health"]
+      /*  let items = ["General", "Academics", "Extracurriculars", "Work & Finance", "Life & Health"]
         let titleView = TitleView(navigationController: navigationController!, title: "Menu", items: items)
         Config.List.backgroundColor = UIColor(red: 0x48 / 0xFF, green: 0x46 / 0xFF, blue: 0x4B / 0xFF, alpha: 0xFF / 0xFF)
         Config.List.DefaultCell.Text.color = UIColor.white
@@ -32,9 +32,18 @@ class TaskListTableViewController: UITableViewController {
         Config.List.DefaultCell.separatorColor = UIColor(red: 0x48 / 0xFF, green: 0x46 / 0xFF, blue: 0x4B / 0xFF, alpha: 0xFF / 0xFF)
         titleView?.action = { [weak self] index in
             print("select \(index)")
+ 
         }
         
         navigationItem.titleView = titleView
+ */
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0x22 / 0xFF, green: 0x28 / 0xFF, blue: 0x2C / 0xFF, alpha: 0xFF / 0xFF)
+        let textAttributes = [NSAttributedStringKey.foregroundColor : UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)]
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,9 +86,13 @@ class TaskListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskListTableViewCell", for: indexPath)
         let item = toDos[toDos.count - 1 - indexPath.row]
         
+        
+        cell.textLabel?.textColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
+        cell.textLabel?.font = UIFont.init(name: "Avenir-Heavy", size: 20.0)
+        
         if let name = item.name {
             if item.important {
-                cell.textLabel?.text = "❗️" + name
+                cell.textLabel?.text = "! " + name
             } else {
                 cell.textLabel?.text = name
             }
@@ -97,7 +110,7 @@ class TaskListTableViewController: UITableViewController {
         performSegue(withIdentifier: "moveToComplete", sender: toDo)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+ /*   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
                 let noteToDelete = toDos[indexPath.row]
                 CoreDataHelper.delete(aTask: noteToDelete)
@@ -110,6 +123,7 @@ class TaskListTableViewController: UITableViewController {
  */
         }
     }
+ */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addVC = segue.destination as? ListGroupsTableViewController {
