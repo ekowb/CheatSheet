@@ -13,6 +13,8 @@ class TaskListTableViewController: UITableViewController {
     
     var toDos: [ToDoCoreData] = []
     
+    var importantList: [ToDoCoreData] = []
+    
     @IBAction func unwindToTaskList(segue:UIStoryboardSegue) { }
     
     @IBAction func displayButtonTapped(_ sender: Any) {
@@ -31,12 +33,18 @@ class TaskListTableViewController: UITableViewController {
         Config.List.DefaultCell.Text.font = UIFont.init(name: "Avenir", size: 17.0)!
         Config.List.DefaultCell.separatorColor = UIColor(red: 0x48 / 0xFF, green: 0x46 / 0xFF, blue: 0x4B / 0xFF, alpha: 0xFF / 0xFF)
         titleView?.action = { [weak self] index in
+            switch index {
+            case 1:
+                self?.toDos = (self?.importantList)!
+            default:
+                print("green")
+            }
             print("select \(index)")
- 
         }
+
         
         navigationItem.titleView = titleView
- */
+  */
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0x22 / 0xFF, green: 0x28 / 0xFF, blue: 0x2C / 0xFF, alpha: 0xFF / 0xFF)
         let textAttributes = [NSAttributedStringKey.foregroundColor : UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)]
         self.navigationController?.navigationBar.tintColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
@@ -84,7 +92,8 @@ class TaskListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskListTableViewCell", for: indexPath)
-        let item = toDos[toDos.count - 1 - indexPath.row]
+        let item = toDos[indexPath.row]
+
         
         
         cell.textLabel?.textColor = UIColor(red: 0xF0 / 0xFF, green: 0xC1 / 0xFF, blue: 0x42 / 0xFF, alpha: 0xFF / 0xFF)
@@ -93,6 +102,7 @@ class TaskListTableViewController: UITableViewController {
         if let name = item.name {
             if item.important {
                 cell.textLabel?.text = "! " + name
+                importantList.append(item)
             } else {
                 cell.textLabel?.text = name
             }
